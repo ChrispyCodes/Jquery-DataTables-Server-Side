@@ -1,0 +1,34 @@
+ <script type="text/javascript">
+        $(document).ready(function () {
+
+        $('#Table').DataTable({
+            "ajax": {
+                "url": "/Controller/Method",
+                "type": "POST",
+                "datatype": "json"
+            },
+            "columns": [
+                { "data": "Table Header", "name": "Table Header"},
+                { "data": "Table Header", "name": "Table Header" },
+                { "data": "Table Header", "name": "Table Header" },
+                { "data": "Table Header", "name": "Table Header" },
+                { "data": "Table Header", "name": "Table Header" },
+                { "data": "Table Header", "name": "Table Header" },
+                { "data": "Table Header", "name": "Table Header" },
+                {
+                    "data": "ID", "render": function (data) {
+                        return '<a href="@Url.Action("Edit","Controller")?id=' + data + '">Edit</a> | <a href="@Url.Action("Details","Controller")?id=' + data + '">Details</a>';
+                    }
+                }
+            ],
+
+            "serverSide": "true",
+            "order": [0, "asc"],
+            "processing": "true",
+            "deferRender": "true",
+            "language": {
+                "processing": ""
+            }
+        });
+    });
+    </script>
